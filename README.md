@@ -8,13 +8,15 @@ The original purpose of **Anima** was to create smooth scroll in a easy way but 
 
 Drop it on your project and you are ready to go or fork it, and improve it for your purpose ;) 
 
-## Usage
+## Getting started
 
 Import Anima on your page. Use the **min file**.
 ```html
 <script src="Anima-min.js"></script>
 <script src="main.js"></script>
 ```
+
+## Usage
 
 In your main js file you can use Anima like so :
 ```javascript
