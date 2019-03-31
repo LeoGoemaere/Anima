@@ -29,7 +29,7 @@ Animate all the css styles properties which are not functions like transforms.
 Actually only the the rotate and scale functions are supported. Other will come in the futur.
 
 ### Methods
-**animate**
+**Anima.animate**
 ```javascript
 Anima.animate(property, { fromValue, toValue, duration, delay, timingCurve }, callback);
 ```
