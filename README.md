@@ -16,6 +16,12 @@ Import Anima on your page. Use the **min file**.
 <script src="main.js"></script>
 ```
 
+## Methods
+**Anima.animate**
+```javascript
+Anima.animate(property, { fromValue, toValue, duration, delay, timingCurve }, callback);
+```
+
 ## Usage
 
 In your main js file you can use Anima like so :
@@ -27,12 +33,6 @@ anima.animate({ 'marginTop', { fromValue: 0, toValue: 500, duration: 400, delay:
 ```
 Animate all the css styles properties which are not functions like transforms.
 Actually only the the rotate and scale functions are supported. Other will come in the futur.
-
-### Methods
-**Anima.animate**
-```javascript
-Anima.animate(property, { fromValue, toValue, duration, delay, timingCurve }, callback);
-```
 
 ### Callback
 You can call the animation callback when the animation is finished.
