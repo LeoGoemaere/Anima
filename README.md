@@ -23,7 +23,7 @@ const anima = new Anima({ element: document.querySelector('.element-to-animate')
 // const anima = new Anima();
 anima.animate({ 'marginTop', { fromValue: 0, toValue: 500, duration: 400, delay: 400, timingCurve: Anima.timingCurves.easeInOutCubic } });
 ```
-Animate all the styles properties which are not functions like transforms.
+Animate all the css styles properties which are not functions like transforms.
 Actually only the the rotate and scale functions are supported. Other will come in the futur.
 
 
@@ -34,3 +34,19 @@ anima.animate({ 'marginTop', { fromValue: 0, toValue: 1000, duration: 400, timin
 } });
 
 ```
+
+### Timing curves functions
+[Gre](https://gist.github.com/gre)
+* linear - no easing, no acceleration
+* easeInQuad - accelerating from zero velocity
+* easeOutQuad - decelerating to zero velocity
+* easeInOutQuad - acceleration until halfway, then deceleration
+* easeInCubic - accelerating from zero velocity 
+* easeOutCubic - decelerating to zero velocity 
+* easeInOutCubic - acceleration until halfway, then deceleration 
+* easeInQuart - accelerating from zero velocity 
+* easeOutQuart - decelerating to zero velocity 
+* easeInOutQuart - acceleration until halfway, then deceleration
+* easeInQuint - accelerating from zero velocity
+* easeOutQuint - decelerating to zero velocity 
+* easeInOutQuint - acceleration until halfway, then deceleration 
