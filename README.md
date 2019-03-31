@@ -23,6 +23,9 @@ const anima = new Anima({ element: document.querySelector('.element-to-animate')
 // const anima = new Anima();
 anima.animate({ 'marginTop', { fromValue: 0, toValue: 500, duration: 400, delay: 400, timingCurve: Anima.timingCurves.easeInOutCubic } });
 ```
+Animate all the styles properties which are not functions like transforms.
+Actually only the the rotate and scale functions are supported. Other will come in the futur.
+
 
 You can call the animation callback when the animation is finished.
 ```javascript
