@@ -1,3 +1,13 @@
+/**
+ * Anima 1.0
+ * Lightweight animation class for simple animations.
+ *
+ * Copyright 2019 - Léo Goémaere
+ *
+ * MIT License
+ *
+ */
+
 class Anima {
     constructor({ element } = {}) {
         this.element = element;
@@ -58,7 +68,7 @@ class Anima {
         return properties[property]();
     }
     isPropertyExceptionExist(property) {
-        return Animator.propertyExceptions.indexOf(property) !== -1; 
+        return Anima.propertyExceptions.indexOf(property) !== -1; 
     }
     static get propertyExceptions() {
         return [
