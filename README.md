@@ -10,7 +10,14 @@ Drop it on your project and you are ready to go or fork it, and improve it for y
 
 ## Usage
 
-Import Anima on your page.
+Import Anima on your page. Use the **min file**.
 ```html
 <script src="Anima-min.js"></script>
+<script src="main.js"></script>
+```
+
+In your main js file you can use Anima like so :
+```javascript
+const anima = new Anima({ element: document.querySelector('.element-to-animate') });
+anima.animate({ 'marginTop', { fromValue: 0, toValue: 500, duration: 400, delay: 400, timingCurve: Anima.timingCurves.easeInOutCubic } });
 ```
