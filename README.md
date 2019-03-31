@@ -23,3 +23,11 @@ const anima = new Anima({ element: document.querySelector('.element-to-animate')
 // const anima = new Anima();
 anima.animate({ 'marginTop', { fromValue: 0, toValue: 500, duration: 400, delay: 400, timingCurve: Anima.timingCurves.easeInOutCubic } });
 ```
+
+You can call the animation callback when the animation is finished.
+```javascript
+anima.animate({ 'marginTop', { fromValue: 0, toValue: 1000, duration: 400, timingCurve: Anima.timingCurves.easeInOutCubic }, () => {
+  // Animation is finished.
+} });
+
+```
