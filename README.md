@@ -2,7 +2,7 @@
 Lightweight animation class for **simple animations**.
 
 Anima - is a simple Class in order to create basic **animations**.
-Code in a **pure Vanilla JS**.
+Coded in a **pure Vanilla JS** with the **ES2015** syntax.
 
 The original purpose of **Anima** was to create smooth scroll in a easy way but basically you can use it for animate whatever you want.
 
