@@ -2,7 +2,7 @@
 Lightweight animation class for **simple animations**.
 
 Anima - is a simple Class in order to create basic **animations**.
-Coded in a **pure Vanilla JS** with the **ES2015** syntax.
+Written in a **pure Vanilla JS** with the **ES2015** syntax.
 
 The original purpose of **Anima** was to create smooth scroll in a easy way but basically you can use it for animate whatever you want.
 
@@ -36,8 +36,6 @@ const anima = new Anima({ element: document.querySelector('.element-to-animate')
 // const anima = new Anima();
 anima.animate({ 'marginTop', { fromValue: 0, toValue: 500, duration: 400, delay: 400, timingCurve: Anima.timingCurves.easeInOutCubic } });
 ```
-Animate all the css styles properties which are not functions like transforms.
-Actually only the the rotate and scale functions are supported. Other will come in the futur.
 
 ### Callback
 You can call the animation callback when the animation is finished.
@@ -47,6 +45,17 @@ anima.animate({ 'marginTop', { fromValue: 0, toValue: 1000, duration: 400, timin
 } });
 
 ```
+
+### Properties
+You can animate all the css styles properties which are not functions like transforms
+You also can animate the scroll.
+Below, a list of properties that you can animate without taking in account the normal styles properties.
+* 'scrollY': Animate the vertical scroll.
+* 'scrollX': Animate the horizontal scroll.
+* 'scroll': Animate the vertical & horizontal scroll.
+* 'rotate': Animate the rotate transform function.
+* 'scale': Animate the scale transform function.
+Other will come in the futur.
 
 ### Timing curves functions
 The timing curves functions are store in the Anima static get function.
