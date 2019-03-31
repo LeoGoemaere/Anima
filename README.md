@@ -36,7 +36,6 @@ anima.animate({ 'marginTop', { fromValue: 0, toValue: 1000, duration: 400, timin
 ```
 
 ### Timing curves functions
-Thanks to [Gre](https://gist.github.com/gre) (y)
 * linear - no easing, no acceleration
 * easeInQuad - accelerating from zero velocity
 * easeOutQuad - decelerating to zero velocity
@@ -50,3 +49,5 @@ Thanks to [Gre](https://gist.github.com/gre) (y)
 * easeInQuint - accelerating from zero velocity
 * easeOutQuint - decelerating to zero velocity 
 * easeInOutQuint - acceleration until halfway, then deceleration 
+
+Thanks to [Gre](https://gist.github.com/gre) for the easings equations.
