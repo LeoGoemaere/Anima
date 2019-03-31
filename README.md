@@ -20,6 +20,6 @@ In your main js file you can use Anima like so :
 ```javascript
 const anima = new Anima({ element: document.querySelector('.element-to-animate') });
 // It's not necessary to specify the element parameter if you're animating the scroll. just do :
-const anima = new Anima();
+// const anima = new Anima();
 anima.animate({ 'marginTop', { fromValue: 0, toValue: 500, duration: 400, delay: 400, timingCurve: Anima.timingCurves.easeInOutCubic } });
 ```
