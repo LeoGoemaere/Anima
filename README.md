@@ -49,12 +49,13 @@ anima.animate({ 'marginTop', { fromValue: 0, toValue: 1000, duration: 400, timin
 ### Properties
 You can animate all the css styles properties which are not functions like transforms
 You also can animate the scroll.
-Below, a list of properties that you can animate without taking in account the normal styles properties.
+Below, a list of properties that you can animate without taking in account the normal styles properties (like: margin, width etc.)
 * 'scrollY': Animate the vertical scroll.
 * 'scrollX': Animate the horizontal scroll.
 * 'scroll': Animate the vertical & horizontal scroll.
 * 'rotate': Animate the rotate transform function.
 * 'scale': Animate the scale transform function.
+
 Other will come in the futur.
 
 ### Timing curves functions
