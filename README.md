@@ -16,7 +16,12 @@ Import Anima on your page. Use the **min file**.
 <script src="main.js"></script>
 ```
 
-## Methods
+### Constructor
+```javascript
+new Anima({ element });
+```
+
+### Methods
 **Anima.animate**
 ```javascript
 Anima.animate(property, { fromValue, toValue, duration, delay, timingCurve }, callback);
