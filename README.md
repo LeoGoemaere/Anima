@@ -38,10 +38,12 @@ anima.animate({ 'marginTop', { fromValue: 0, toValue: 1000, duration: 400, timin
 ### Timing curves functions
 The timing curves functions are store in the Anima static get function.
 You can call one of theses with Anima.timingCurves
+
 **Exemple**
 ```javascript
 Anima.timingCurves.linear
 ```
+
 * linear - no easing, no acceleration
 * easeInQuad - accelerating from zero velocity
 * easeOutQuad - decelerating to zero velocity
