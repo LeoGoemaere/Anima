@@ -46,16 +46,16 @@ class Anima {
                 return callback();
             }
         }
-        requestAnimationFrame(frame);
+        window.setTimeout(() => {
+            requestAnimationFrame(frame);
+        }, delay)
     }
     animateProperty({ delay, property, animationPosition, element }) {
-        window.setTimeout(() => {
-            if (this.isPropertyExceptionExist(property)) {
-                this.setPropertyException(element, property, animationPosition)
-            } else {
-                this.element.style[property] = `${animationPosition}px`;
-            }
-        }, delay)
+        if (this.isPropertyExceptionExist(property)) {
+            this.setPropertyException(element, property, animationPosition)
+        } else {
+            this.element.style[property] = `${animationPosition}px`;
+        }
     }
     setPropertyException(element, property, animProgress) {
         const properties = {
