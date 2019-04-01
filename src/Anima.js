@@ -11,8 +11,9 @@
 class Anima {
     constructor({ element } = {}) {
         this.element = element;
+        this.animationProgress = 0;
+        this.currentAnimationRange = 0,
         this.isAnimationRunning = false;
-        this.isFinished = (value) => value; 
     }
     animate(property, { fromValue, toValue, duration, delay = 0, timingCurve }, callback = null) {
         if (this.isAnimationRunning) { return; }
@@ -22,42 +23,66 @@ class Anima {
             let progress;
             if (startTime === null) startTime = timestamp;
             progress = timestamp - startTime;
-            const relativeProgress = progress/duration; 
-            const currentToValue = toValue > fromValue ? fromValue : toValue;
-            const animDistance = fromValue < toValue ? toValue - fromValue : fromValue - toValue;
-            let animationProgress = (timingCurve(relativeProgress) * animDistance) + currentToValue;
+            this.currentAnimationRange = this._getAnimationRange(progress, duration);
+            this.animationProgress = this._getAnimProgress({
+                timingCurve: timingCurve,
+                animationRange: this.currentAnimationRange,
+                animDistance: this._getAnimDistance(fromValue, toValue),
+                currentToValue: this._getCurrentToValue(fromValue, toValue)
+            });
+            
             if (toValue < fromValue) {
-                animationProgress -= fromValue;
-                animationProgress = Math.abs(animationProgress - currentToValue);
+                this.animationProgress -= fromValue;
+                this.animationProgress = Math.abs(this.animationProgress - this._getCurrentToValue(fromValue, toValue));
             }
 
-            this.animateProperty({ delay: delay, property: property, animationPosition: animationProgress, element: this.element });
+            this._animateProperty({ delay: delay, property: property, animationPosition: this.animationProgress, element: this.element });
 
-            const shouldRequestAnimationFrame = relativeProgress >= 0 && relativeProgress <= 1;
+            const shouldRequestAnimationFrame = this.currentAnimationRange >= 0 && this.currentAnimationRange <= 1;
             if (shouldRequestAnimationFrame) {
                 requestAnimationFrame(frame);
             } 
             else {
                 this.isAnimationRunning = false;
-                // When the anim is finished we just put the element in the 'toValue' position.
-                this.animateProperty({ property: property, animationPosition: this.isFinished(toValue), element: this.element });
+                // When the anim is finished we set animationProgress with the 'toValue' position.
+                this.animationProgress = toValue;
+                this.currentAnimationRange = 1;
+                this._animateProperty({ property: property, animationPosition: this.animationProgress, element: this.element });
                 startTime = null;
                 if (callback === null) { return; }
-                return callback();
+                callback();
+                this._resetAnimationDatas();
             }
         }
         window.setTimeout(() => {
             requestAnimationFrame(frame);
         }, delay)
     }
-    animateProperty({ delay, property, animationPosition, element }) {
-        if (this.isPropertyExceptionExist(property)) {
-            this.setPropertyException(element, property, animationPosition)
+    // Helpers
+    _getAnimDistance(from, to) {
+        return from < to ? to - from : from - to; 
+    }
+    _getAnimProgress({ timingCurve, animationRange, animDistance, currentToValue} ) {
+        return timingCurve(animationRange) * animDistance + currentToValue;
+    }
+    _getCurrentToValue(from, to) {
+        return to > from ? from : to;
+    }
+    _getAnimationRange(progress, duration) {
+        return progress/duration;
+    }
+    _resetAnimationDatas() {
+        this.animationProgress = 0;
+        this.currentAnimationRange = 0;
+    }
+    _animateProperty({ delay, property, animationPosition, element }) {
+        if (this._isPropertyExceptionExist(property)) {
+            this._setPropertyException(element, property, animationPosition)
         } else {
             this.element.style[property] = `${animationPosition}px`;
         }
     }
-    setPropertyException(element, property, animProgress) {
+    _setPropertyException(element, property, animProgress) {
         const properties = {
             scrollY: () => { window.scrollTo(0,animProgress); },
             scrollX: () => { window.scrollTo(animProgress, 0) },
@@ -67,7 +92,7 @@ class Anima {
         };
         return properties[property]();
     }
-    isPropertyExceptionExist(property) {
+    _isPropertyExceptionExist(property) {
         return Anima.propertyExceptions.indexOf(property) !== -1; 
     }
     static get propertyExceptions() {
