@@ -34,16 +34,15 @@ In your main js file you can use Anima like so :
 const anima = new Anima({ element: document.querySelector('.element-to-animate') });
 // It's not necessary to specify the element parameter if you're animating the scroll. just do :
 // const anima = new Anima();
-anima.animate({ 'marginTop', { fromValue: 0, toValue: 500, duration: 400, delay: 400, timingCurve: Anima.timingCurves.easeInOutCubic } });
+anima.animate('marginTop', { fromValue: 0, toValue: 500, duration: 400, delay: 400, timingCurve: Anima.timingCurves.easeInOutCubic });
 ```
 
 ### Callback
 You can call the animation callback when the animation is finished.
 ```javascript
-anima.animate({ 'marginTop', { fromValue: 0, toValue: 1000, duration: 400, timingCurve: Anima.timingCurves.easeInOutCubic }, () => {
+anima.animate('marginTop', { fromValue: 0, toValue: 500, duration: 1000, delay: 400, timingCurve: Anima.timingCurves.easeInOutCubic }, () => {
   // Animation is finished.
-} });
-
+});
 ```
 
 ### Properties
